@@ -1,0 +1,40 @@
+Installation and Setup for aurdino+qaoa.py
+1. Prerequisites
+Python 3.8+ (recommended for Qiskit compatibility)
+Operating System: Windows (required for msvcrt keyboard interaction)
+Hardware (Optional): Arduino with HC-05 Bluetooth module for physical robot control.
+2. Install Dependencies
+Install the specific libraries used by the QAOA and clustering engine:
+
+pip install numpy matplotlib scikit-learn scipy qiskit qiskit-optimization qiskit-algorithms
+3. Hardware Configuration (Optional)
+If you are using an Arduino/Robot, open aurdino+qaoa.py and update the Bluetooth MAC address on line 74:
+
+HC05_MAC = "00:00:13:01:81:A3"  # Replace with your HC-05 MAC Address
+How to Run
+Step 1: Execute the Script
+Run the main script from your terminal:
+
+python "aurdino+qaoa.py"
+Step 2: Interactive Controls (During Simulation)
+The script uses msvcrt to listen for keyboard inputs while the animation is running:
+
+S: Start/Stop the vehicle movement.
+X: Emergency stop (sends 'X' to Arduino).
+L / R / F: Manual override commands for the robot (Left, Right, Forward).
+What This Document Does
+Classical Layer: Uses K-Means to cluster customers into groups of ≤10\le 10≤10 to ensure the quantum problem size is manageable.
+Quantum Layer: Formulates the routing problem as a QUBO and solves it using QAOA to select the optimal path among candidate routes.
+Dynamic Simulation:
+Generates a main route and several alternate routes.
+Obstacle Detection: If an obstacle appears on the path, the system automatically triggers a reroute.
+Hardware Bridge: Translates the simulated movements (Forward, Turn) into serial characters sent via Bluetooth to an Arduino-controlled robot.
+Visual Guide (Animation Window)
+Green Circle: Delivery Depot.
+Orange Circles: Customer locations.
+Blue Circle: The delivery vehicle.
+Green Dashed Line: Currently active optimized route.
+Blue Dotted Lines: Pre-computed alternate routes.
+Red Square: Detected obstacle (triggers automatic switching).
+
+
