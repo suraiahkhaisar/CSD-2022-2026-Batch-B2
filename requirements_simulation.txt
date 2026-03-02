@@ -7,3 +7,5 @@ qiskit-algorithms>=0.2.0
 
 
 pip install numpy matplotlib scikit-learn scipy qiskit qiskit-optimization qiskit-algorithms
+
+scipy is required for the convex hull and optimization logic in aurdino+qaoa.py.
