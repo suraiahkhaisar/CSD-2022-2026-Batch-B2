@@ -5,3 +5,5 @@ qiskit>=0.40.0
 qiskit-optimization>=0.5.0
 qiskit-algorithms>=0.2.0
 
+
+pip install numpy matplotlib scikit-learn scipy qiskit qiskit-optimization qiskit-algorithms
